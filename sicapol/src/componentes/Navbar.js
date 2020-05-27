@@ -9,7 +9,7 @@ export const Navbar = () => (
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-                <Link className="nav-item nav-link" to="/inicio">Inicio</Link>               
+                <Link className="nav-item nav-link" to="/">Inicio</Link>               
                 <li className="nav-item dropdown">
                     <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         RRHH
