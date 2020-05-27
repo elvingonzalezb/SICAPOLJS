@@ -9,6 +9,6 @@ const router = epr();
 router.use('/categoria', categoriaRouter);
 router.use('/articulo', articuloRouter);
 router.use('/usuario', usuarioRouter);
-router.use('/funcionario', funcionarioRouter);
+router.use('/funcionarios', funcionarioRouter);
 
 export default router;

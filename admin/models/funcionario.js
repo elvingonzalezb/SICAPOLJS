@@ -6,12 +6,12 @@ const funcionarioSchema = new Schema({
         maxlength :20, 
         required: true
     },
-    nombre: { 
+    nombres: { 
         type: String,
         maxlength: 80,         
         required: true
     },
-    apellido: { 
+    apellidos: { 
         type: String, 
         maxlength: 80
     },
@@ -25,11 +25,15 @@ const funcionarioSchema = new Schema({
     },
     comisaria: { 
         type: String, 
-        maxlength: 20
+        maxlength: 100
     },
     region: { 
         type: String, 
         maxlength: 50
+    },
+    estatus: { 
+        type: String, 
+        maxlength: 20
     },
     estado: { 
         type: Number, 
