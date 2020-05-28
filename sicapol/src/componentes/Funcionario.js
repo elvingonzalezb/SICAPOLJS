@@ -17,6 +17,18 @@ export const Funcionario = () => {
     const [id, setId]                     = useState('')
     const [funcionarios, setFuncionarios] = useState([])
 
+    const [addrtype] = useState(
+        [
+            { cod_region: "R1", nom_region: "LOS TEQUES" }, 
+            { cod_region: "R2", nom_region: "CHARALLAVE" }, 
+            { cod_region: "R3", nom_region: "CAUCAGUA" },
+            { cod_region: "R4", nom_region: "HIGUEROTE" },
+            { cod_region: "R5", nom_region: "SANTA TERESA" },
+            { cod_region: "R6", nom_region: "GUARENAS-GUATIRE" },
+            { cod_region: "R7", nom_region: "PETARE" }
+            
+        ])   
+
     const HandleSubmit = async (e) => {
         e.preventDefault()
         if (!indEditar) {
@@ -203,13 +215,15 @@ export const Funcionario = () => {
                     </div>
 
                     <div className="form-group">
-                        <input
-                            type="text"
-                            placeholder="Tipo Trabajador"
-                            value={tipo}
-                            onChange={e => setTipo(e.target.value)}
-                            className="form-control"
-                        />
+                        <select className="form-control browser-default custom-select"> 
+                        <option value="0">SELECCIONE</option>
+                        {
+                            addrtype.map(region => ( 
+                                <option key={region.cod_region} value={region.cod_region} > {region.nom_region} </option> 
+                            ))
+                        } 
+                        </select>                                   
+                        
                     </div>
                     <input type="hidden" value={id} onChange={e => setId(e.target.value)}
                         
