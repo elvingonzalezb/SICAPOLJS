@@ -8,8 +8,7 @@ export const Funcionario = () => {
     const [apellidos, setApellidos]       = useState("");
     const [nombres, setNombres]           = useState("");
     const [jerarquia, setJerarquia]       = useState("");
-    const [cargo, setCargo]               = useState("");
-    const [region, setRegion]             = useState("");
+    const [cargo, setCargo]               = useState("");   
     const [comisaria, setComisaria]       = useState("");
     const [estatus, setEstatus]           = useState("");
     const [tipo, setTipo]                 = useState("");
@@ -17,7 +16,7 @@ export const Funcionario = () => {
     const [id, setId]                     = useState('')
     const [funcionarios, setFuncionarios] = useState([])
 
-    const [addrtype] = useState(
+    const [region] = useState(
         [
             { cod_region: "R1", nom_region: "LOS TEQUES" }, 
             { cod_region: "R2", nom_region: "CHARALLAVE" }, 
@@ -218,7 +217,7 @@ export const Funcionario = () => {
                         <select className="form-control browser-default custom-select"> 
                         <option value="0">SELECCIONE</option>
                         {
-                            addrtype.map(region => ( 
+                            region.map(region => ( 
                                 <option key={region.cod_region} value={region.cod_region} > {region.nom_region} </option> 
                             ))
                         } 
