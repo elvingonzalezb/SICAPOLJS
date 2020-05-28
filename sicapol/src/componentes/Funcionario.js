@@ -10,11 +10,17 @@ export const Funcionario = () => {
     const [jerarquia, setJerarquia]       = useState("");
     const [cargo, setCargo]               = useState("");   
     const [comisaria, setComisaria]       = useState("");
-    const [estatus, setEstatus]           = useState("");
-    const [tipo, setTipo]                 = useState("");
+    const [estatus, setEstatus]           = useState(["ACTIVO", "BAJA", "DESTITUCION", "JUBILADO", "PERMISO"]);
+    const [tipo, setTipo]                 = useState(["ALUMNO", "ADMINISTRATIVO", "POLICIAL", "EMPLEADO"]);
     const [indEditar, setIndEditar]       = useState(false)
     const [id, setId]                     = useState('')
     const [funcionarios, setFuncionarios] = useState([])
+
+    const Add = estatus.map(Add => Add);
+    const cambirEstatus = (e) => console.log((estatus[e.target.value]));
+
+    const oTipo = tipo.map( oTipo => oTipo);
+    const combiarTipo = (e) => tipo[e.target.value];
 
     const [region] = useState(
         [
@@ -44,8 +50,8 @@ export const Funcionario = () => {
                     cargo : cargo,
                     region : region,
                     comisaria : comisaria,
-                    estatus : estatus,    
-                    tipo : tipo                    
+                    estatus : estatus,
+                    tipo: tipo              
                 })
             })
             const data = await res.json();
@@ -64,8 +70,8 @@ export const Funcionario = () => {
                     cargo : cargo,
                     region : region,
                     comisaria : comisaria,
-                    estatus : estatus,    
-                    tipo : tipo,
+                    estatus : estatus,
+                    tipo: tipo,
                     _id: id
                 })
             })
@@ -115,16 +121,14 @@ export const Funcionario = () => {
 
         setIndEditar(true);
         setId(id)
-
         setCedula(data.cedula)
         setApellidos(data.apellidos)
         setNombres(data.nombres)
         setJerarquia(data.jerarquia)
-        setCargo(data.cargo)
-        setRegion(data.region)
+        setCargo(data.cargo)       
         setComisaria(data.comisaria)
-        setEstatus(data.estatus)
-        setTipo(data.tipo)       
+        setEstatus(data.estatus)  
+        setTipo(data.tipo)           
         console.log(data)
     }
 
@@ -163,6 +167,7 @@ export const Funcionario = () => {
                             className="form-control"
                         />
                     </div>
+
                     <div className="form-group">
                         <input
                             type="text"
@@ -181,17 +186,7 @@ export const Funcionario = () => {
                             onChange={e => setJerarquia(e.target.value)}
                             className="form-control"
                         />
-                    </div>                
-
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            placeholder="Nombre de Region"
-                            value={region}
-                            onChange={e => setRegion(e.target.value)}
-                            className="form-control"
-                        />
-                    </div>
+                    </div>            
 
                     <div className="form-group">
                         <input
@@ -203,14 +198,22 @@ export const Funcionario = () => {
                         />
                     </div>
 
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            placeholder="Estatus"
-                            value={estatus}
-                            onChange={e => setEstatus(e.target.value)}
-                            className="form-control"
-                        />
+                    <div className="form-group">                    
+                        <select onChange={e => cambirEstatus(e)} className="browser-default custom-select">
+                        <option value="0">ESTATUS</option>
+                        { 
+                            Add.map((estatus, key) => <option value={key}>{estatus}</option>) 
+                        } 
+                        </select>
+                    </div>
+
+                    <div className="form-group">                    
+                        <select onChange={e => combiarTipo(e)} className="browser-default custom-select">
+                        <option value="0">TIPO</option>
+                        { 
+                            oTipo.map((tipo, key) =>  <option value={key}>{tipo}</option>)
+                        } 
+                        </select>
                     </div>
 
                     <div className="form-group">
@@ -224,9 +227,8 @@ export const Funcionario = () => {
                         </select>                                   
                         
                     </div>
-                    <input type="hidden" value={id} onChange={e => setId(e.target.value)}
+                    <input type="hidden" value={id} onChange={e => setId(e.target.value)} />
                         
-                        />
                         <button className="btn btn-primary btn-block">
                             {indEditar ? 'Editar' : 'Registrar'}
                         </button>
