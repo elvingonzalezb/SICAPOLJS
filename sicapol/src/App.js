@@ -10,8 +10,8 @@ function App() {
       <Navbar></Navbar>
       <div className="container p-4">
         <Switch>
-          <Route path="/" component={Inicio} />
-          <Route path="/funcionario" component={Funcionario} />
+          <Route exact stric path="/" component={Inicio} />
+          <Route exact stric path="/funcionario" component={Funcionario} />
         </Switch>
       </div>
     </Router>
