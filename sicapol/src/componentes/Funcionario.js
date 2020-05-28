@@ -16,7 +16,7 @@ export const Funcionario = () => {
     const [id, setId]                     = useState('')
     const [funcionarios, setFuncionarios] = useState([])
 
-    const Add = estatus.map(Add => Add);
+    const oEstatus = estatus.map(oEstatus => oEstatus);
     const cambirEstatus = (e) => console.log((estatus[e.target.value]));
 
     const oTipo = tipo.map( oTipo => oTipo);
@@ -202,7 +202,7 @@ export const Funcionario = () => {
                         <select onChange={e => cambirEstatus(e)} className="browser-default custom-select">
                         <option value="0">ESTATUS</option>
                         { 
-                            Add.map((estatus, key) => <option value={key}>{estatus}</option>) 
+                            oEstatus.map((estatus, key) => <option value={key}>{estatus}</option>) 
                         } 
                         </select>
                     </div>
