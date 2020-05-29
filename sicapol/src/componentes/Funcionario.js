@@ -17,10 +17,10 @@ export const Funcionario = () => {
     const [funcionarios, setFuncionarios] = useState([])
 
     const oEstatus = estatus.map(oEstatus => oEstatus);
-    const cambirEstatus = (e) => console.log((estatus[e.target.value]));
+    const cambiarEstatus = (e) => console.log((estatus[e.target.value]));
 
     const oTipo = tipo.map( oTipo => oTipo);
-    const combiarTipo = (e) => tipo[e.target.value];
+    const cambiarTipo = (e) => tipo[e.target.value];
 
     const [region] = useState(
         [
@@ -199,7 +199,7 @@ export const Funcionario = () => {
                     </div>
 
                     <div className="form-group">                    
-                        <select onChange={e => cambirEstatus(e)} className="browser-default custom-select">
+                        <select onChange={e => cambiarEstatus(e)} className="browser-default custom-select">
                         <option value="0">ESTATUS</option>
                         { 
                             oEstatus.map((estatus, key) => <option value={key}>{estatus}</option>) 
@@ -208,7 +208,7 @@ export const Funcionario = () => {
                     </div>
 
                     <div className="form-group">                    
-                        <select onChange={e => combiarTipo(e)} className="browser-default custom-select">
+                        <select onChange={e => cambiarTipo(e)} className="browser-default custom-select">
                         <option value="0">TIPO</option>
                         { 
                             oTipo.map((tipo, key) =>  <option value={key}>{tipo}</option>)
